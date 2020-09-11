@@ -36,7 +36,7 @@ class LocalStorage {
 }
 const instance = new LocalStorage()
 
-global.localStorage = new Proxy(instance, {
+module.exports = new Proxy(instance, {
   set: function (obj, prop, value) {
     if (LocalStorage.prototype.hasOwnProperty(prop)) {
       instance[prop] = value
